@@ -5,7 +5,8 @@
 * \*\*\*\*[**扩容导论**](kuo-rong-dao-lun.md)\*\*\*\*
 * **二层扩容/链下扩容**
   * 跨链技术导论
-    * * Cosmos 跨链方案剖析
+    * Polkadot 跨链方案剖析
+    * Cosmos 跨链方案剖析
     * Cosmos IBC 跨链标准解读
     * Cosmos IBC 源码解读
     * Cosmos-SDK Hands-on 快速建链
