@@ -1,4 +1,4 @@
 # 前言
 
-[目录](mu-lu.md)
+[目录](content.md)
 
