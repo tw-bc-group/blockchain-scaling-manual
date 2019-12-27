@@ -144,9 +144,7 @@ S2S 的大致流程如下
 
   应用层通过 ABCI 接口与 Tendermint Core 进行连接，抽象来讲，应用层的接入如下图所示：
 
-  ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b9e5e8cd-5c3f-4456-b72b-669465798543/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b9e5e8cd-5c3f-4456-b72b-669465798543/Untitled.png)
-
-  图片来源：[https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](.gitbook/assets/image%20%2817%29.png)
 
 ## **验证人**
 
@@ -154,14 +152,48 @@ S2S 的大致流程如下
 * **验证人更替 任何 Atom 持有者在任何时候可以通过签署和提交 BondTx 交易成为验证人**，其持有 Atom 的数量必须大于现有验证人中最少持有有效 Atom 的数量。替换现有的验证人时, 现有的验证人将离线，其所有的 Atom 进入解绑状态。
 * **后置惩罚** 由于 **PoS 的先天局限性**，对于恶意验证人的惩罚显然是后置性的。 当验证人作恶时，拥有某些特定的证据可**立即可被受理**, 比如在同样高度区块和回合的双重签名。其抵押的 **Atom** 和在储备金中的**权益**会受到大幅削减。 当验证人因为网络中断、电源故障等原因不可用时，若验证人**缺席一定次数的投票时**，该验证人将离线，并减少其**权益**。 **恶意行为被举报**且存在多数协商一致，验证人会被**强制超时**，削减抵**押金**和**权益**。 有意思的是，当 Cosmos Hub **超过 1/3 的投票权离线或进入审查时**，此时**网络中断**。这时候 Hub 就必须借助**硬分叉重组协议**来进行恢复。
 
-**Tendermint 的其他特性：**
+#### **Tendermint 的其他特性：**
 
-* **Finality** 最终确定性
-* **可变验证人及验证人限制**
-* 明确的**超时机制**
-* **责任制**
-* **兼容性**
-* **轻量性**
+**Finality** / 最终确定性  
+对比 Bitcoin 共识机制—最长的链才是合法的。由于存在不同的矿工同时挖出下一个区块的可能性，比特币可能出现短暂的分叉，任何被提交到链上的交易不能百分百被确认因为有可能在分叉的链上，往往需要经过几个区块时间交易才能被确认，概率学上来将这也就是我们常说的 [6个确认时间](https://en.bitcoin.it/wiki/Confirmation)。
+
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](.gitbook/assets/image%20%2813%29.png)
+
+而 Tendermint 共识机制则不同，当 Validator 提交该区块后，则该区块立即被确认了。
+
+![ &#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1&#x200B;](.gitbook/assets/image%20%2812%29.png)
+
+**可变验证人及验证人限制**
+
+**Tendermint 链会随着验证人的增加而变慢**，是由于通信的复杂性增加导致的。与 Bitcoin 的矿工不同，**Tendermint 链有验证人上限**。 以 Cosmos Hub 为例，在创世日, 验证人的最大数量将设置为 100, 这个数字将以 13% 的速度增长 10 年, 最终达到 300 位。任何 Atom 持有者在任何时候可以通过签署和提交 BondTx 交易成为验证人，除非当前验证人组的数量超过了最大值。当验证人发生替换时，替换条件为：新验证人持有的 Atom 比现有的持有最少有效的 Atom 的验证人的 Atom 多。 简单讲就是谁有钱谁上。
+
+**明确的超时机制**
+
+与 Bitcoin 和 ETH 的共识机制不同，**Tendermint 有明确的超时机制**，保证投票和出块过程不会宕延，如果**预投票不通过或者超时**则由新的 Proposer 发起下一轮打包和投票。
+
+**责任制**
+
+Tendermint 使用 PoS 作为抗女巫攻击机制。由于 PoS 先天性的 Nothing At Stake 特性，Tendermint 制定了相关的责任机制来应对这一问题。
+
+* 分区的安全性与责任制
+
+  Cosmos Hub 不会验证或执行提交到其他分区的交易，因此将代币发送到可靠的分区间就是用户的责任了。
+
+  验证者节点以及对应的委托人节点对结果负责，若验证者节点对伪造的交易或分叉上多处签名，则该次不忠诚的行为将对验证者节点进行惩罚。
+
+* 网络分叉的责任制
+
+  当网络中超过1/3的节点集合作恶或进入审查状态离线时，Cosmos 网络将会中断，其他非作恶节点会根据硬分叉协定投票进入分叉流程，作恶验证者节点所抵押的保证金及权益将被罚没。
+
+**兼容性**
+
+Tendermint 的兼容性体现在其理论上**可以支持开发使用任何语言**来开发其应用层和链上逻辑，而无需关心网路层和共识层。
+
+从更高的层面上来将， Cosmos 的兼容性体现在其对确定链（具备出块确定性的链）和概率链的兼容，通过 **Peg Zone 将 Hub 与概率链进行桥接**。这一点会在后续章节展开介绍。
+
+**轻量性**
+
+轻量性体现在除了负责验证和出块的节点外，**其余节点不需要下载和存储区块的完整状态**，只需要存储对应链的区块头，通过 Merkle Proof 来对其他链上的特定交易进行查询和验证。
 
 ## IBC
 
