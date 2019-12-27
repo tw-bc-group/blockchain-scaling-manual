@@ -144,7 +144,7 @@ S2S 的大致流程如下
 
   应用层通过 ABCI 接口与 Tendermint Core 进行连接，抽象来讲，应用层的接入如下图所示：
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](.gitbook/assets/image%20%2817%29.png)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](.gitbook/assets/image%20%2819%29.png)
 
 ## **验证人**
 
@@ -265,7 +265,9 @@ Cosmos Hub 是多资产分布式账本，它有自己的代币 **Atom** 。**Ato
 
 Cosmos 主网一经发布，其代币 Atom 的价格便较众筹时涨了超过40倍，目前，参与 Cosmos 生态的优质项目越来越多，如下所示。
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://cosmos.network/ecosystem](.gitbook/assets/image%20%289%29.png)
+![](.gitbook/assets/image%20%2814%29.png)
+
+其中包括顶部去中心化交易所币安链、作为另一个枢纽的 IRISnet Hub 、允许开发者用 Rust 语言在 Cosmos 网络中开发智能合约 CosmWasm 项目等。
 
 ## Concepts
 

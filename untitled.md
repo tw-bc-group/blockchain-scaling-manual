@@ -85,7 +85,7 @@
 
 至此完成了 Alice 和 Bob 的 BTC 和 ETH 的交换（_案例中省去了交易所的服务费_）。通过该例子可以看出交易所的方式目前仅能够支持资产的交换，且资产交换的原子性、安全性完全由中心化的交易所保障存在较大的中心化风险。
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#x4E8E;&#xFF1A;https://ask.qcloudimg.com/http-save/yehe-2874029/srxbh17yf6.png?imageView2/2/w/1620](.gitbook/assets/image%20%2816%29.png)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#x4E8E;&#xFF1A;https://ask.qcloudimg.com/http-save/yehe-2874029/srxbh17yf6.png?imageView2/2/w/1620](.gitbook/assets/image%20%2817%29.png)
 
 此外，著名的分布式账本技术 Ripple 也是采用类似公证人的机制来解决全球金融机构之间的资产交换的。Ripple 的系统架构如上图所示，在 Ripple 系统中的交易通过网络中的验证者进行验证，之后验证者验证的交易会被加密算法所保护，从而保证交易内容不能被验证者窥探从而保证交易的隐私性。
 
