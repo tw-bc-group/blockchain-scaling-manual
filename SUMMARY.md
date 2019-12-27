@@ -5,4 +5,5 @@
 * [扩容导论](scaling-overview.md)
 * [Polkadot 跨链方案剖析](polkadot.md)
 * [跨链技术导论](untitled.md)
+* [Cosmos 跨链方案剖析](anatomy-of-cosmos.md)
 
