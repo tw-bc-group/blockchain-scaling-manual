@@ -15,15 +15,13 @@
   * 状态通道
     * 侧链
     * 链下计算
-* **一层扩容/链上扩容**
-  * 数据层
-    * 扩块
-    * 隔离见证
-    * 有向无环图
-  * 网络层
-
-    分片扩容
-
+* \*\*\*\*[**一层扩容/链上扩容**](layer-1-scaling-overview.md)\*\*\*\*
+  * [数据层](layer-1-scaling-overview.md#shu-ju-ceng)
+    * [有向无环图](layer-1-scaling-overview.md#you-xiang-wu-huan-tu)
+    * [扩块](layer-1-scaling-overview.md#ge-li-jian-zheng-or-kuo-kuai)
+    * [隔离见证](layer-1-scaling-overview.md#ge-li-jian-zheng-or-kuo-kuai)
+  * [网络层](layer-1-scaling-overview.md#wang-luo-ceng)
+    * [分片](layer-1-scaling-overview.md#fen-pian)
   * 共识层
     * BFT
     * non-BFT
