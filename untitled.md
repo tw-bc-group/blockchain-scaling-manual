@@ -85,7 +85,7 @@
 
 至此完成了 Alice 和 Bob 的 BTC 和 ETH 的交换（_案例中省去了交易所的服务费_）。通过该例子可以看出交易所的方式目前仅能够支持资产的交换，且资产交换的原子性、安全性完全由中心化的交易所保障存在较大的中心化风险。
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#x4E8E;&#xFF1A;https://ask.qcloudimg.com/http-save/yehe-2874029/srxbh17yf6.png?imageView2/2/w/1620](.gitbook/assets/image%20%2817%29.png)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#x4E8E;&#xFF1A;https://ask.qcloudimg.com/http-save/yehe-2874029/srxbh17yf6.png?imageView2/2/w/1620](.gitbook/assets/image%20%2831%29.png)
 
 此外，著名的分布式账本技术 Ripple 也是采用类似公证人的机制来解决全球金融机构之间的资产交换的。Ripple 的系统架构如上图所示，在 Ripple 系统中的交易通过网络中的验证者进行验证，之后验证者验证的交易会被加密算法所保护，从而保证交易内容不能被验证者窥探从而保证交易的隐私性。
 
@@ -103,7 +103,7 @@
 
 它会迫使资产的接收方在设定的超时时间内确定收款并产生一个收款证明给打款人，否则该笔资产就会重新归还给打款人。而这个收款证明就能够被打款人用来获取接收方区块链上的等量价值的资产或者触发其他事件。
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#x4E8E;&#xFF1A;https://ask.qcloudimg.com/http-save/yehe-2874029/9w0f33qrl1.png?imageView2/2/w/1620](.gitbook/assets/image%20%282%29.png)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#x4E8E;&#xFF1A;https://ask.qcloudimg.com/http-save/yehe-2874029/9w0f33qrl1.png?imageView2/2/w/1620](.gitbook/assets/image%20%283%29.png)
 
 如上图所示，通过一个例子来阐述如何使用哈希时间锁定进行跨链的原子资产交换，假设 Alice 和 Bob 有资产交换的需求：Alice 想用 1 个 BTC 和 Bob 换 20 个 ETH。那么首先需要在两条链上设置哈希时间锁定合约，然后执行如下步骤：
 
@@ -131,7 +131,7 @@
 
 其中 BTC-Relay 应该是历史上第一个出现的侧链，它通过以太坊构建了一条比特币的侧链，是 BTC 到 ETH 的单向跨链。它运用以太坊的智能合约允许用户验证比特币的交易。如下图所示我们以 Alice 用 1BTC 和 Bob 交换 20ETH 为例来看一下这一过程。
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#x4E8E;&#xFF1A;https://ask.qcloudimg.com/http-save/yehe-2874029/cjdia836ir.png?imageView2/2/w/1620](.gitbook/assets/image%20%284%29.png)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#x4E8E;&#xFF1A;https://ask.qcloudimg.com/http-save/yehe-2874029/cjdia836ir.png?imageView2/2/w/1620](.gitbook/assets/image%20%286%29.png)
 
 1. Bob 将 20ETH 发送到 BTCSwap 的合约进行冻结（该合约只要能够确认 BTC 网络上 Bob 接收到来自 Alice 1BTC 就自动将 20ETH 转给 Alice）；
 2. Alice 确认 Bob 冻结信息后，将 1 BTC 转给 Bob 比特币账户；

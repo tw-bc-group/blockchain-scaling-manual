@@ -54,7 +54,7 @@ Cosmos 不仅仅是单一的分布式账本，**Cosmos 正在为分布式账本�
 
 复制状态机在概念上有3个层级：
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](.gitbook/assets/image%20%2819%29.png)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](.gitbook/assets/image%20%2834%29.png)
 
 * **应用层** 应用层负责定义状态变迁，并在事务发生后更新状态机状态。
 * **共识层** 共识层由算法组成，负责确保在事务执行后每一台状态机都存储相同的状态（即，某一状态机无法伪造不存在的事务）。
@@ -90,7 +90,7 @@ Tendermint 的共识机制基于**拜占庭容错算法**，通过 **PoS 协议*
 
 按照规则，**验证者要按轮次（round）对每一个区块达成共识**。每一轮都包含三个基本步骤：**提议阶段（Propose）**、**预投票阶段（Prevote）**、**预提交阶段（Precommit）**，以及两个后续步骤：**提交阶段（Commit）**、**新高度阶段（NewHeight）**。
 
-![!\[https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e95d770b-439c-4a3d-8e29-62d71cbf3664/Untitled.png\]\(https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e95d770b-439c-4a3d-8e29-62d71cbf3664/Untitled.png\)  &#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;\[https://tendermint.com/docs/introduction/what-is-tendermint.html\#consensus-overview\]\(https://tendermint.com/docs/introduction/what-is-tendermint.html\#consensus-overview\)](.gitbook/assets/image%20%287%29.png)
+![!\[https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e95d770b-439c-4a3d-8e29-62d71cbf3664/Untitled.png\]\(https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e95d770b-439c-4a3d-8e29-62d71cbf3664/Untitled.png\)  &#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;\[https://tendermint.com/docs/introduction/what-is-tendermint.html\#consensus-overview\]\(https://tendermint.com/docs/introduction/what-is-tendermint.html\#consensus-overview\)](.gitbook/assets/image%20%2810%29.png)
 
 1. 首先是**提议**阶段，由指定的验证者提出一个区块——每一轮中的提议者都是从有序的列表中按照投票**权重（Stake based）**的比例，确定性地选择出来的。
 
@@ -144,7 +144,7 @@ S2S 的大致流程如下
 
   应用层通过 ABCI 接口与 Tendermint Core 进行连接，抽象来讲，应用层的接入如下图所示：
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](.gitbook/assets/image%20%2820%29.png)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](.gitbook/assets/image%20%2836%29.png)
 
 ## **验证人**
 
@@ -157,11 +157,11 @@ S2S 的大致流程如下
 **Finality** / 最终确定性  
 对比 Bitcoin 共识机制—最长的链才是合法的。由于存在不同的矿工同时挖出下一个区块的可能性，比特币可能出现短暂的分叉，任何被提交到链上的交易不能百分百被确认因为有可能在分叉的链上，往往需要经过几个区块时间交易才能被确认，概率学上来将这也就是我们常说的 [6个确认时间](https://en.bitcoin.it/wiki/Confirmation)。
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](.gitbook/assets/image%20%2813%29.png)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1](.gitbook/assets/image%20%2823%29.png)
 
 而 Tendermint 共识机制则不同，当 Validator 提交该区块后，则该区块立即被确认了。
 
-![ &#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1&#x200B;](.gitbook/assets/image%20%2812%29.png)
+![ &#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://www.preethikasireddy.com/posts/how-does-cosmos-work-part1&#x200B;](.gitbook/assets/image%20%2822%29.png)
 
 **可变验证人及验证人限制**
 
@@ -208,7 +208,7 @@ IBC 协议可以自然定义为两种交易的使用：
 
 通过将 IBC 机制分离成两个单独的交易，即 IBCBlockCommitTx 交易与 IBCPacketTx 交易，我们可以让接收方链的本地费用市场机制，来决定承认哪个数据包，与此同时还能确保发送方的完全自由，让其自行决定能够传出的数据包数量。
 
-![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://cosmos.network/resources/whitepaper](.gitbook/assets/image%20%281%29.png)
+![&#x56FE;&#x7247;&#x6765;&#x6E90;&#xFF1A;https://cosmos.network/resources/whitepaper](.gitbook/assets/image%20%282%29.png)
 
 在上述案例中，为了更新"枢纽"上"分区 1"的区块哈希（或者说"分区 2"上"枢纽"的区块哈希），必须将 IBCBlockCommitTx 交易的"分区 1"区块哈希值发布到"枢纽"上（或者将该交易的"枢纽"区块哈希值发布到"分区 2"中）。
 
@@ -265,7 +265,7 @@ Cosmos Hub 是多资产分布式账本，它有自己的代币 **Atom** 。**Ato
 
 Cosmos 主网一经发布，其代币 Atom 的价格便较众筹时涨了超过40倍，目前，参与 Cosmos 生态的优质项目越来越多，如下所示。
 
-![](.gitbook/assets/image%20%2814%29.png)
+![](.gitbook/assets/image%20%2826%29.png)
 
 其中包括顶部去中心化交易所币安链、作为另一个枢纽的 IRISnet Hub 、允许开发者用 Rust 语言在 Cosmos 网络中开发智能合约 CosmWasm 项目等。
 
